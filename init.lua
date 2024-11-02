@@ -1,14 +1,9 @@
--- load options
-require("options")
-
--- load keymappings
+require("config.options")
+require("config.lazy")
+require("config.autocmds")
 require("keymaps")
 
--- load Packervim
-require("plugins")
+-- vim.cmd([[colorscheme catppuccin]])
+vim.cmd([[colorscheme kanagawa]])
 
--- Set colorscheme
-require("colorscheme")
-
--- Set LSP
-require("lsp")
+vim.o.autoread = true
