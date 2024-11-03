@@ -50,12 +50,6 @@ return function()
 					lua = true, -- You can set the option for specific filetypes
 				},
 			},
-			fzf = {
-				fuzzy = false,
-				override_generic_sorter = true,
-				override_file_sorter = true,
-				case_mode = "smart_case",
-			},
 			live_grep_args = {
 				auto_quoting = true, -- enable/disable auto-quoting
 				-- define mappings, e.g.
@@ -83,7 +77,6 @@ return function()
 		},
 	})
 
-	require("telescope").load_extension("fzf")
 	require("telescope").load_extension("live_grep_args")
 	require("telescope").load_extension("undo")
 	require("telescope").load_extension("zoxide")

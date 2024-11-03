@@ -121,8 +121,8 @@ end
 -- 	vim.g.python3_host_prog = use_if_defined(vim.g.python3_host_prog, "python3")
 -- end
 
-vim.g.python_host_prog = "/home/ritzier/python312/bin/python"
-vim.g.python3_host_prog = "/home/ritzier/python312/bin/python"
+vim.g.python_host_prog = "C:\\Python312\\python.exe"
+vim.g.python3_host_prog = "C:\\Python312\\python.exe"
 
 -- custom sqlite3 provider
 local sqlite_clib_path = os.getenv("SQLITE_CLIB_PATH")
