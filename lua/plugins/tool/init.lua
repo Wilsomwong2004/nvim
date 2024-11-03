@@ -12,6 +12,13 @@ return {
 		config = require("plugins.tool.config.nvim-tree"),
 		keys = {
 			{ "<C-n>", ":NvimTreeToggle<CR>", desc = "NvimTreeToggle", mode = "n" },
+			{
+				"<C-m>",
+				":NvimTreeOpen C:\\Users\\wilso\\OneDrive<CR>",
+				desc = "NvimTreeToggle",
+				mode = "n",
+				silent = true,
+			},
 		},
 	},
 

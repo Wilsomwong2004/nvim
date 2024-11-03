@@ -4,15 +4,16 @@ local M = {}
 M["lsp_list"] = {
 	"bashls",
 	"cssls",
+	"html",
 	"jsonls",
 	"lua_ls",
 	"marksman",
-	--"pylsp",
 	"pyright",
 	"tailwindcss",
 	"taplo",
-	"yamlls",
 	"ts_ls",
+	"yamlls",
+	--"pylsp",
 }
 
 -- Automate download, but need for
