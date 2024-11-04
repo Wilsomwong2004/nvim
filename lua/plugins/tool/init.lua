@@ -14,7 +14,7 @@ return {
 			{ "<C-n>", ":NvimTreeToggle<CR>", desc = "NvimTreeToggle", mode = "n" },
 			{
 				"<C-m>",
-				":NvimTreeOpen C:\\Users\\wilso\\OneDrive<CR>",
+				":NvimTreeOpen C:\\Users\\wilso\\OneDrive<CR>" .. ":cd C:\\Users\\wilso\\OneDrive<CR>",
 				desc = "NvimTreeToggle",
 				mode = "n",
 				silent = true,
@@ -169,6 +169,10 @@ return {
 		event = "CmdlineEnter",
 		cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
 		opts = {},
+		keys = {
+			{ "<F5>", "<cmd>CompilerOpen<cr>", desc = "Complier Open" },
+			{ "<S-F5>", "<cmd>ComplierStop<cr>" .. "<cmd>ComplierRedo<cr>", desc = "Complier Redo" },
+		},
 		dependencies = {
 			{
 				"stevearc/overseer.nvim",

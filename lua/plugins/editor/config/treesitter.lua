@@ -21,6 +21,7 @@ return vim.schedule_wrap(function()
 			"json",
 			"json5",
 			"julia",
+			"java",
 			"lua",
 			"markdown",
 			"proto",
