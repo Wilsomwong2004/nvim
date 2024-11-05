@@ -7,7 +7,6 @@
   "catppuccin": { "branch": "refactor/syntax-highlighting", "commit": "00e66a94c95dcdc9ef0a71116b32787da3d55c45" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "39e2eda76828d88b773cc27a3f61d2ad782c922d" },
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
-  "compiler.nvim": { "branch": "main", "commit": "fd28c5e3cf9f78d9a943530ffd1b9cbd15e57ee1" },
   "conform.nvim": { "branch": "master", "commit": "d28ccf945374edd9f1c34a82f6c22261dbd8ab98" },
   "crates.nvim": { "branch": "main", "commit": "8bf8358ee326d5d8c11dcd7ac0bcc9ff97dbc785" },
   "csv.vim": { "branch": "master", "commit": "bddfcbadd788ab11eb3dbba4550a38a412fe3705" },

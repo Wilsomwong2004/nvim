@@ -14,6 +14,10 @@ return {
 					"on_result_diagnostics",
 					"default",
 				},
+				{
+					"on_success",
+					cmd = { vim.fn.expand("%:r") },
+				},
 			}
 		end,
 		condition = {

@@ -168,5 +168,22 @@ return {
 		lazy = true,
 		event = "CmdlineEnter",
 		config = require("plugins.tool.config.overseer"),
+		keys = {
+			{ "<F5>", "<cmd>OverseerRun<CR>", desc = "OverseerRun" },
+			{
+				"<F6>",
+				function()
+					if vim.g.overseer_is_open then
+						vim.cmd("OverseerClose")
+						vim.g.overseer_is_open = false
+					else
+						vim.cmd("OverseerOpen")
+						vim.g.overseer_is_open = true
+					end
+				end,
+				desc = "Toggle Overseer",
+			},
+			{ "<F7>", "<cmd>OverseerQuickAction<CR>", desc = "OverseerQuickAction" },
+		},
 	},
 }
