@@ -162,7 +162,14 @@ return {
 			{ "<leader>dc", "<cmd>DiffviewClose", desc = "DiffView Close" },
 		},
 	},
-
+	{
+		"rbong/vim-flog",
+		lazy = true,
+		cmd = { "Flog", "Flogsplit", "Floggit" },
+		dependencies = {
+			"tpope/vim-fugitive",
+		},
+	},
 	{
 		"stevearc/overseer.nvim",
 		lazy = true,

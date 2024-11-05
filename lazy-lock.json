@@ -66,6 +66,8 @@
   "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "d10c9fda7b8b7b81b2c6eb4c3909adfe9812c6bf" },
   "todo-comments.nvim": { "branch": "main", "commit": "ae0a2afb47cf7395dc400e5dc4e05274bf4fb9e0" },
   "toggleterm.nvim": { "branch": "main", "commit": "5969229c0352ff1ed7f6e24aba9c6554e1842939" },
+  "vim-flog": { "branch": "master", "commit": "afbbe41355122722a9e6beb23055e2b63187fc1e" },
+  "vim-fugitive": { "branch": "master", "commit": "d4877e54cef67f5af4f950935b1ade19ed6b7370" },
   "vim-sleuth": { "branch": "master", "commit": "be69bff86754b1aa5adcbb527d7fcd1635a84080" },
   "vim-startuptime": { "branch": "master", "commit": "ac2cccb5be617672add1f4f3c0a55ce99ba34e01" },
   "which-key.nvim": { "branch": "main", "commit": "8badb359f7ab8711e2575ef75dfe6fbbd87e4821" },
