@@ -56,6 +56,14 @@ return {
 				},
 			})
 		end,
+		keys = {
+			{ "<Space>ad", "<cmd>Fitten document_code<CR>", desc = "Document code", mode = "n" },
+			{ "<Space>ae", "<cmd>Fitten edit_code<CR>", desc = "Edit Code", mode = "n" },
+			{ "<Space>aE", "<cmd>Fitten explain_code<CR>", desc = "Explain Code", mode = "n" },
+			{ "<Space>ac", "<cmd>Fitten start_chat<CR>", desc = "Start Chat", mode = "n" },
+			{ "<Space>as", "<cmd>Fitten show_chat<CR>", desc = "Show Chat Windows", mode = "n" },
+			{ "<Space>at", "<cmd>Fitten toggle_chat<CR>", desc = "Toggle Chat Windows", mode = "n" },
+		},
 	},
 	{
 		"akinsho/toggleterm.nvim",

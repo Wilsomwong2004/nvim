@@ -19,6 +19,15 @@ return {
 		},
 	},
 	{
+		"goolord/alpha-nvim",
+		lazy = true,
+		event = "vimenter",
+		config = function()
+			require("alpha") -- Loads alpha.nvim
+			require("plugins.ui.config.alpha")
+		end,
+	},
+	{
 		"stevearc/dressing.nvim",
 		event = "VeryLazy",
 		opts = {},
