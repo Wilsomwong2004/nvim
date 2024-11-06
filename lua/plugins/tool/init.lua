@@ -48,8 +48,13 @@ return {
 	},
 	{
 		"luozhiya/fittencode.nvim",
+		lazy = false,
 		config = function()
-			require("fittencode").setup()
+			require("fittencode").setup({
+				log = {
+					level = vim.log.levels.TRACE,
+				},
+			})
 		end,
 	},
 	{
