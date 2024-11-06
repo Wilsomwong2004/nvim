@@ -46,7 +46,12 @@ return {
 		cmd = { "SnipRun", "SnipReset", "SnipInfo" },
 		config = require("plugins.tool.config.sniprun"),
 	},
-
+	{
+		"luozhiya/fittencode.nvim",
+		config = function()
+			require("fittencode").setup()
+		end,
+	},
 	{
 		"akinsho/toggleterm.nvim",
 		keys = {
@@ -82,7 +87,12 @@ return {
 			"romgrk/fzy-lua-native",
 		},
 	},
-
+	{
+		"barrett-ruth/live-server.nvim",
+		build = "pnpm add -g live-server",
+		cmd = { "LiveServerStart", "LiveServerStop" },
+		config = true,
+	},
 	{
 		"nvim-telescope/telescope.nvim",
 		lazy = true,
@@ -168,6 +178,11 @@ return {
 		cmd = { "Flog", "Flogsplit", "Floggit" },
 		dependencies = {
 			"tpope/vim-fugitive",
+		},
+		keys = {
+			{ "<leader>gff", "<cmd>Flog", desc = "Git Graph (full)" },
+			{ "<leader>gfs", "<cmd>Flogsplit", desc = "Git Graph (split)" },
+			{ "<leader>gft", "<cmd>Floggit", desc = "Floggit" },
 		},
 	},
 	{
