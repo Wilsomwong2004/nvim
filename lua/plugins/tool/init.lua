@@ -11,14 +11,39 @@ return {
 		},
 		config = require("plugins.tool.config.nvim-tree"),
 		keys = {
-			{ "<C-n>", ":NvimTreeToggle<CR>", desc = "NvimTreeToggle", mode = "n" },
+			{ "<C-n>", ":NvimTreeToggle<CR>", desc = "Toggle NvimTree", mode = "n" },
+
+			-- Custom directory navigation with C-m + a, b, etc.
 			{
 				"<C-m>",
-				":NvimTreeOpen C:\\Users\\wilso\\OneDrive<CR>" .. ":cd C:\\Users\\wilso\\OneDrive<CR>",
-				desc = "NvimTreeToggle",
+				":echo 'Press C-m followed by a, b, c for project directories' <CR>",
+				desc = "Project Directory Instructions",
+				mode = "n",
+			},
+			{
+				"<C-m>a",
+				":NvimTreeOpen C:\\Users\\wilso\\OneDrive\\Code\\Wil-s-Drive<CR>"
+					.. ":cd C:\\Users\\wilso\\OneDrive<CR>",
+				desc = "Open Wil's Drive",
 				mode = "n",
 				silent = true,
 			},
+			{
+				"<C-m>b",
+				":NvimTreeOpen C:\\Users\\wilso\\OneDrive\\Java-Assignment<CR>"
+					.. ":cd C:\\Users\\wilso\\OneDrive\\Java-Assignment<CR>",
+				desc = "Open Java-Assignment",
+				mode = "n",
+				silent = true,
+			},
+			{
+				"<C-m>c",
+				":NvimTreeOpen C:\\xampp\\htdocs\\MyCar_Website<CR>" .. ":cd C:\\xampp\\htdocs\\MyCar_Website<CR>",
+				desc = "Open Website in PHP",
+				mode = "n",
+				silent = true,
+			},
+			-- You can continue adding more project directory mappings as needed
 		},
 	},
 
@@ -125,6 +150,35 @@ return {
 			{ "<leader>tf", "<cmd>Telescope find_files<CR>", desc = "Find Files", mode = "n" },
 		},
 	},
+	{
+		"Shatur/neovim-session-manager",
+		lazy = true,
+		requires = { "nvim-lua/plenary.nvim" },
+		config = function()
+			local Path = require("plenary.path")
+			require("session_manager").setup({
+				sessions_dir = Path:new(vim.fn.stdpath("data"), "sessions"), -- Directory where sessions are saved
+				autoload_mode = require("session_manager.config").AutoloadMode.LastSession,
+			})
+		end,
+	},
+
+	{
+		"ahmedkhalf/project.nvim",
+		lazy = true,
+		dependencies = {
+			"nvim-telescope/telescope.nvim", -- Ensure Telescope is loaded before project.nvim
+		},
+		config = function()
+			require("project_nvim").setup({
+				-- Configure patterns for detecting project root
+				detection_methods = { "pattern" },
+				patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
+			})
+			--enable telescope integration
+			require("telescope").load_extension("project")
+		end,
+	},
 
 	-- TODO:
 	-- {
@@ -193,9 +247,9 @@ return {
 			"tpope/vim-fugitive",
 		},
 		keys = {
-			{ "<leader>gff", "<cmd>Flog", desc = "Git Graph (full)" },
-			{ "<leader>gfs", "<cmd>Flogsplit", desc = "Git Graph (split)" },
-			{ "<leader>gft", "<cmd>Floggit", desc = "Floggit" },
+			{ "<leader>gff", "<cmd>Flog<CR>", desc = "Git Graph (full)" },
+			{ "<leader>gfs", "<cmd>Flogsplit<CR>", desc = "Git Graph (split)" },
+			{ "<leader>gft", "<cmd>Floggit<CR>", desc = "Floggit" },
 		},
 	},
 	{
