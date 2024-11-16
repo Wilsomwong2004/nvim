@@ -27,7 +27,6 @@ return {
 			},
 		},
 	},
-
 	{
 		"Saecki/crates.nvim",
 		lazy = true,
