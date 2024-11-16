@@ -132,7 +132,6 @@ return {
 			{ "onsails/lspkind.nvim" },
 		},
 	},
-
 	{
 		"amrbashir/nvim-docs-view",
 		lazy = true,
@@ -171,6 +170,7 @@ return {
 			},
 		},
 	},
+
 	{
 		"Jezda1337/nvim-html-css",
 		lazy = true,
