@@ -12,38 +12,14 @@ return {
 		config = require("plugins.tool.config.nvim-tree"),
 		keys = {
 			{ "<C-n>", ":NvimTreeToggle<CR>", desc = "Toggle NvimTree", mode = "n" },
-
-			-- Custom directory navigation with C-m + a, b, etc.
 			{
-				"<C-m>",
-				":echo 'Press C-m followed by a, b, c for project directories' <CR>",
-				desc = "Project Directory Instructions",
-				mode = "n",
-			},
-			{
-				"<C-m>a",
+				"<C-b>",
 				":NvimTreeOpen C:\\Users\\wilso\\OneDrive\\Code\\Wil-s-Drive<CR>"
 					.. ":cd C:\\Users\\wilso\\OneDrive<CR>",
 				desc = "Open Wil's Drive",
 				mode = "n",
 				silent = true,
 			},
-			{
-				"<C-m>b",
-				":NvimTreeOpen C:\\Users\\wilso\\OneDrive\\Java-Assignment<CR>"
-					.. ":cd C:\\Users\\wilso\\OneDrive\\Java-Assignment<CR>",
-				desc = "Open Java-Assignment",
-				mode = "n",
-				silent = true,
-			},
-			{
-				"<C-m>c",
-				":NvimTreeOpen C:\\xampp\\htdocs\\MyCar_Website<CR>" .. ":cd C:\\xampp\\htdocs\\MyCar_Website<CR>",
-				desc = "Open Website in PHP",
-				mode = "n",
-				silent = true,
-			},
-			-- You can continue adding more project directory mappings as needed
 		},
 	},
 
@@ -60,7 +36,6 @@ return {
 		lazy = true,
 		event = "CmdlineEnter",
 	},
-
 	{
 		"michaelb/sniprun",
 		lazy = true,
