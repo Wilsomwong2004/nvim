@@ -127,7 +127,6 @@ vim.api.nvim_create_autocmd("User", {
 
 		-- Select random motivational message
 		local message = motivational_messages[math.random(#motivational_messages)]
-		-- Remove center_text function here since centering is handled by opts
 		dashboard.section.message.val = message
 
 		-- Header typing animation
@@ -136,14 +135,20 @@ vim.api.nvim_create_autocmd("User", {
 			current_chars[i] = 0
 		end
 
+		-- Create reference to timers for proper cleanup
 		local header_timer = vim.loop.new_timer()
 		local star_pos = 1
 		local star_frame = 1
+		local header_active = true
 
 		header_timer:start(
 			0,
 			20,
 			vim.schedule_wrap(function()
+				if not header_active then
+					return
+				end
+
 				local any_incomplete = false
 
 				for i = 1, #header_text do
@@ -172,8 +177,11 @@ vim.api.nvim_create_autocmd("User", {
 				pcall(vim.cmd.AlphaRedraw)
 
 				if not any_incomplete then
-					header_timer:stop()
-					header_timer:close()
+					header_active = false
+					if not header_timer:is_closing() then
+						header_timer:stop()
+						header_timer:close()
+					end
 				end
 			end)
 		)
@@ -187,10 +195,16 @@ vim.api.nvim_create_autocmd("User", {
 		local duration = 2000 -- 2 seconds animation
 
 		local footer_timer = vim.loop.new_timer()
+		local footer_active = true
+
 		footer_timer:start(
 			0,
 			50,
 			vim.schedule_wrap(function()
+				if not footer_active then
+					return
+				end
+
 				local elapsed = vim.loop.now() - start_time
 				local progress = math.min(elapsed / duration, 1)
 
@@ -206,8 +220,11 @@ vim.api.nvim_create_autocmd("User", {
 				pcall(vim.cmd.AlphaRedraw)
 
 				if progress >= 1 then
-					footer_timer:stop()
-					footer_timer:close()
+					footer_active = false
+					if not footer_timer:is_closing() then
+						footer_timer:stop()
+						footer_timer:close()
+					end
 				end
 			end)
 		)

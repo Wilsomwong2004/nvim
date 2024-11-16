@@ -23,10 +23,20 @@ return {
 	},
 
 	-- ERROR: Not working
+	--{
+	--	"windwp/nvim-ts-autotag",
+	--	config = require("plugins.editor.config.autotag"),
+	--	enabled = true,
+	--},
+
 	{
 		"windwp/nvim-ts-autotag",
-		config = require("plugins.editor.config.autotag"),
-		enabled = false,
+		dependencies = "nvim-treesitter/nvim-treesitter",
+		config = function()
+			require("nvim-ts-autotag").setup()
+		end,
+		lazy = true,
+		event = "VeryLazy",
 	},
 
 	{
@@ -117,6 +127,26 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
 		build = ":TSUpdate",
+		opt = {
+			autotag = {
+				enable = true,
+				filetypes = {
+					"html",
+					"javascript",
+					"typescript",
+					"svelte",
+					"vue",
+					"tsx",
+					"jsx",
+					"rescript",
+					"css",
+					"lua",
+					"xml",
+					"php",
+					"markdown",
+				},
+			},
+		},
 		-- config = function()
 		-- 	require("nvim-treesitter.configs").setup({
 		-- 		endwise = { enable = true }
@@ -147,7 +177,6 @@ return {
 			},
 		},
 	},
-
 	{
 		"max397574/better-escape.nvim",
 		lazy = true,
