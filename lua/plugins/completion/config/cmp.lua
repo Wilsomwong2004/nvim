@@ -139,20 +139,6 @@ return function()
 			{ name = "nvim_lsp" },
 			{ name = "path" },
 			{ name = "crates" },
-			{
-				name = "html-css",
-				option = {
-					enable_on = {
-						"html",
-					},
-					dir_to_exclude = { "node_modules" },
-					file_extensions = { "css", "sass", "less" },
-					style_sheets = {
-						"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css",
-						"https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css",
-					},
-				},
-			},
 		},
 
 		mapping = cmp.mapping.preset.insert({

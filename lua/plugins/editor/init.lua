@@ -22,13 +22,6 @@ return {
 		enabled = true,
 	},
 
-	-- ERROR: Not working
-	--{
-	--	"windwp/nvim-ts-autotag",
-	--	config = require("plugins.editor.config.autotag"),
-	--	enabled = true,
-	--},
-
 	{
 		"windwp/nvim-ts-autotag",
 		dependencies = "nvim-treesitter/nvim-treesitter",
@@ -38,6 +31,8 @@ return {
 		lazy = true,
 		event = "VeryLazy",
 	},
+
+	-- ERROR: Not working
 
 	{
 		"m4xshen/autoclose.nvim",

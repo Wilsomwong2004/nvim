@@ -11,7 +11,7 @@ return function()
 		sort_by = "name",
 		update_cwd = false,
 		view = {
-			width = 30,
+			width = 35,
 			side = "left",
 			preserve_window_proportions = false,
 			number = false,
