@@ -1,11 +1,12 @@
 return {
 
-	{
-		"stevearc/aerial.nvim",
-		lazy = true,
-		event = "LspAttach",
-		config = require("plugins.completion.config.aerial"),
-	},
+	-- {
+	-- 	"stevearc/aerial.nvim",
+	-- 	lazy = true,
+	-- 	disabled = false,
+	-- 	event = "LspAttach",
+	-- 	config = require("plugins.completion.config.aerial"),
+	-- },
 
 	{
 		"dnlhc/glance.nvim",

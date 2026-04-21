@@ -1,89 +1,52 @@
-return vim.schedule_wrap(function()
-	vim.api.nvim_set_option_value("foldmethod", "expr", {})
-	vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
+return function()
+	local deps = {
+		"bash",
+		"c",
+		"c_sharp",
+		"cpp",
+		"css",
+		"csv",
+		"dockerfile",
+		"dot",
+		"fsh",
+		"go",
+		"gomod",
+		"gosum",
+		"gowork",
+		"html",
+		"htmldjango",
+		"javascript",
+		"lisp",
+		"json",
+		"json5",
+		"julia",
+		"lua",
+		"luadoc",
+		"luap",
+		"luau",
+		"markdown",
+		"proto",
+		"python",
+		"query",
+		"toml",
+		"tsx",
+		"typescript",
+		"yaml",
+	}
 
-	require("nvim-treesitter.configs").setup({
-		sync_install = true,
-		ensure_installed = {
-			"bash",
-			"c",
-			"c_sharp",
-			"cpp",
-			"css",
-			"csv",
-			"dockerfile",
-			"dot",
-			"embedded_template",
-			"fsh",
-			"glimmer",
-			"go",
-			"gomod",
-			"gosum",
-			"gowork",
-			"html",
-			"java",
-			"javascript",
-			"json",
-			"json5",
-			"julia",
-			"lua",
-			"markdown",
-			"php",
-			"proto",
-			"python",
-			"rescript",
-			"rust",
-			"svelte",
-			"toml",
-			"tsx",
-			"typescript",
-			"vue",
-			"yaml",
-		},
-		highlight = {
-			enable = true,
-			disable = function(ft, bufnr)
-				if vim.tbl_contains({ "vim" }, ft) then
-					return true
-				end
-
-				local ok, is_large_file = pcall(vim.api.nvim_buf_get_var, bufnr, "bigfile_disable_treesitter")
-				return ok and is_large_file
-			end,
-			additional_vim_regex_highlighting = false,
-		},
-		textobjects = {
-			select = {
-				enable = true,
-				keymaps = {
-					["af"] = "@function.outer",
-					["if"] = "@function.inner",
-					["ac"] = "@class.outer",
-					["ic"] = "@class.inner",
-				},
-			},
-			move = {
-				enable = true,
-				set_jumps = true, -- whether to set jumps in the jumplist
-				goto_next_start = {
-					["]["] = "@function.outer",
-					["]m"] = "@class.outer",
-				},
-				goto_next_end = {
-					["]]"] = "@function.outer",
-					["]M"] = "@class.outer",
-				},
-				goto_previous_start = {
-					["[["] = "@function.outer",
-					["[m"] = "@class.outer",
-				},
-				goto_previous_end = {
-					["[]"] = "@function.outer",
-					["[M"] = "@class.outer",
-				},
-			},
-		},
-		indent = { enable = true },
-		endwise = { enable = true },
+	vim.api.nvim_create_autocmd("FileType", {
+		pattern = deps,
+		callback = function(args)
+			local ok, ts = pcall(require, "nvim-treesitter")
+			if not ok then
+				return
+			end
+			local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].ft)
+			if lang then
+				ts.install({ lang }):await() -- Await install
+				vim.treesitter.start(args.buf, lang)
+				vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end
+		end,
 	})
-end)
+end
