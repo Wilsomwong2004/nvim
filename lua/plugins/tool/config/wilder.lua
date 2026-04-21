@@ -4,19 +4,20 @@ return function()
 		modes = { ":", "/", "?" },
 	})
 
-	wilder.set_option("pipeline", {
-		wilder.branch(
-			wilder.cmdline_pipeline({
-				language = "python",
-				fuzzy = 1,
-			}),
-			wilder.python_search_pipeline({
-				pattern = wilder.python_fuzzy_pattern(),
-				sorter = wilder.python_difflib_sorter(),
-				engine = "re",
-			})
-		),
-	})
+	-- WARNING: weird when using other python venv
+	-- wilder.set_option("pipeline", {
+	-- 	wilder.branch(
+	-- 		wilder.cmdline_pipeline({
+	-- 			language = "python",
+	-- 			fuzzy = 1,
+	-- 		}),
+	-- 		wilder.python_search_pipeline({
+	-- 			pattern = wilder.python_fuzzy_pattern(),
+	-- 			sorter = wilder.python_difflib_sorter(),
+	-- 			engine = "re",
+	-- 		})
+	-- 	),
+	-- })
 
 	wilder.set_option(
 		"renderer",
@@ -40,7 +41,7 @@ return function()
 					),
 				},
 
-				left = { " ", wilder.popupmenu_devicons() },
+				-- left = { " ", wilder.popupmenu_devicons() },
 				right = { " ", wilder.popupmenu_scrollbar() },
 				max_height = "28%",
 			})),
